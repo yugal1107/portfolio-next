@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Manrope:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-headline: "Space Grotesk", sans-serif;
+  --font-body: "Manrope", sans-serif;
+  --font-label: "Manrope", sans-serif;
+
+  --color-surface: #060e20;
+  --color-on-surface: #dee5ff;
+  --color-on-surface-variant: #a3aac4;
+  --color-surface-container-low: #091328;
+  --color-surface-container: #0f1930;
+  --color-surface-container-high: #141f38;
+  --color-surface-container-highest: #192540;
+  --color-surface-bright: #1f2b49;
+  --color-surface-variant: #192540;
+  --color-surface-dim: #060e20;
+  
+  --color-primary: #22d3ee;
+  --color-primary-dim: #22d3ee;
+  --color-primary-container: #22d3ee;
+  --color-on-primary: #083344;
+  
+  --color-secondary: #7dd3fc;
+  --color-secondary-dim: #7dd3fc;
+  --color-on-secondary: #082f49;
+  
+  --color-tertiary: #a3e635;
+  --color-tertiary-dim: #a3e635;
+  --color-on-tertiary: #1a2e05;
+  
+  --color-outline: #6d758c;
+  --color-outline-variant: #40485d;
+}
+
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+}
+
+.perspective-rail {
+  position: fixed;
+  left: 8.333333%;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: #40485d;
+  opacity: 0.1;
+  z-index: 0;
+}
+
+.glass-card {
+  background: rgba(25, 37, 64, 0.6);
+  backdrop-filter: blur(20px);
+}
+
+@layer base {
+  body {
+    @apply bg-surface text-on-surface font-body selection:bg-primary selection:text-on-primary;
+    min-height: max(884px, 100dvh);
+  }
+}
