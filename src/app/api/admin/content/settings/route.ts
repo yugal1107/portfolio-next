@@ -34,6 +34,7 @@ export async function PATCH(request: Request) {
       {
         success: result.success,
         message: result.message,
+        data: { success: true },
       },
       { status: result.statusCode },
     );

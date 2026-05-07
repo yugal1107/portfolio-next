@@ -32,6 +32,7 @@ export async function PUT(request: Request, { params }: ProjectRouteProps) {
       {
         success: result.success,
         message: result.message,
+        data: { success: true },
       },
       { status: result.statusCode },
     );
@@ -72,6 +73,7 @@ export async function DELETE(request: Request, { params }: ProjectRouteProps) {
       {
         success: result.success,
         message: result.message,
+        data: { success: true },
       },
       { status: result.statusCode },
     );

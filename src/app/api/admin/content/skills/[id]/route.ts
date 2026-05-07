@@ -28,6 +28,7 @@ export async function PUT(request: Request, { params }: SkillRouteProps) {
       {
         success: result.success,
         message: result.message,
+        data: { success: true },
       },
       { status: result.statusCode },
     );
@@ -68,6 +69,7 @@ export async function DELETE(request: Request, { params }: SkillRouteProps) {
       {
         success: result.success,
         message: result.message,
+        data: { success: true },
       },
       { status: result.statusCode },
     );

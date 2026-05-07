@@ -31,6 +31,7 @@ export async function PUT(request: Request, { params }: ContactMessageStatusRout
         {
           success: result.success,
           message: result.message,
+          data: { success: true },
         },
         { status: result.statusCode },
       );

@@ -30,6 +30,7 @@ export async function DELETE(request: Request, { params }: ContactMessageRoutePr
         {
           success: result.success,
           message: result.message,
+          data: { success: true },
         },
         { status: result.statusCode },
       );
