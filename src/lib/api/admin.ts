@@ -229,3 +229,98 @@ export const deleteAdminStory = async (id: number) => {
     cache: "no-store",
   });
 };
+
+export const getAdminBlogPosts = async () => {
+  return fetchApiJson<
+    Array<{
+      id: number;
+      title: string;
+      slug: string;
+      summary: string | null;
+      coverImageUrl: string | null;
+      coverImagePublicId: string | null;
+      tags: string[];
+      orderIndex: number;
+      isPublished: boolean;
+      createdAt: string;
+      updatedAt: string;
+    }>
+  >("/api/admin/content/blog", { cache: "no-store" });
+};
+
+export const getAdminBlogPost = async (id: number) => {
+  return fetchApiJson<{
+    id: number;
+    title: string;
+    slug: string;
+    summary: string | null;
+    contentMarkdown: string;
+    coverImageUrl: string | null;
+    coverImagePublicId: string | null;
+    tags: string[];
+    orderIndex: number;
+    isPublished: boolean;
+    createdAt: string;
+    updatedAt: string;
+  }>(`/api/admin/content/blog/${id}`, { cache: "no-store" });
+};
+
+export const createAdminBlogPost = async (payload: Record<string, unknown>) => {
+  return fetchApiJson<{ success: true; data?: { id: number } }>("/api/admin/content/blog", {
+    method: "POST",
+    body: payload,
+    cache: "no-store",
+  });
+};
+
+export const updateAdminBlogPost = async (id: number, payload: Record<string, unknown>) => {
+  return fetchApiJson<{ success: true }>(`/api/admin/content/blog/${id}`, {
+    method: "PUT",
+    body: payload,
+    cache: "no-store",
+  });
+};
+
+export const deleteAdminBlogPost = async (id: number) => {
+  return fetchApiJson<{ success: true }>(`/api/admin/content/blog/${id}`, {
+    method: "DELETE",
+    cache: "no-store",
+  });
+};
+
+export const uploadAdminFile = async (
+  file: File,
+  options?: { folder?: string; publicIdPrefix?: string; format?: string },
+) => {
+  const formData = new FormData();
+  formData.append("file", file);
+  if (options?.folder) formData.append("folder", options.folder);
+  if (options?.publicIdPrefix) formData.append("publicIdPrefix", options.publicIdPrefix);
+  if (options?.format) formData.append("format", options.format);
+
+  const res = await fetch("/api/admin/upload/file", {
+    method: "POST",
+    body: formData,
+    cache: "no-store",
+  });
+
+  const payload = (await res.json()) as {
+    success: boolean;
+    message?: string;
+    data?: {
+      url: string;
+      optimizedUrl: string;
+      publicId: string;
+      resourceType: string;
+      format: string;
+      bytes: number;
+      originalFilename: string;
+    };
+  };
+
+  if (!res.ok || !payload.success) {
+    throw new Error(payload.message || `Upload failed with status ${res.status}`);
+  }
+
+  return payload.data!;
+};

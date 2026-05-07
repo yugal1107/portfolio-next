@@ -89,3 +89,32 @@ export type ContactMessage = {
   status: ContactMessageStatus;
   createdAt: string;
 };
+
+export type BlogPostCard = {
+  id: number;
+  title: string;
+  slug: string;
+  summary: string | null;
+  coverImageUrl: string | null;
+  coverImagePublicId: string | null;
+  tags: string[];
+  isPublished: boolean;
+  orderIndex: number;
+  createdAt: string;
+  updatedAt: string;
+};
+
+export type BlogPostDetail = {
+  id: number;
+  title: string;
+  slug: string;
+  summary: string | null;
+  contentMarkdown: string;
+  tags: string[];
+  coverImageUrl: string | null;
+  coverImagePublicId: string | null;
+  isPublished: boolean;
+  orderIndex: number;
+  createdAt: string;
+  updatedAt: string;
+};

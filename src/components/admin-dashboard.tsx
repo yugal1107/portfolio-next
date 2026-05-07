@@ -38,6 +38,7 @@ export function AdminDashboard() {
     { href: "/admin/projects", label: "Projects" },
     { href: "/admin/skills", label: "Skills" },
     { href: "/admin/stories", label: "Stories" },
+    { href: "/admin/blog", label: "Blog" },
     { href: "/admin/contact", label: "Contact Messages" },
   ];
 

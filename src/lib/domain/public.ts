@@ -1,8 +1,9 @@
-import type { HomePayload, StoryCard, StoryDetail } from "@/types/content";
+import type { BlogPostCard, BlogPostDetail, HomePayload, StoryCard, StoryDetail } from "@/types/content";
 
 import { createNativeContactMessage } from "@/lib/native/public-contact";
 import { fetchNativePublicHome } from "@/lib/native/public-home";
 import { fetchNativePublicStories, fetchNativePublicStoryBySlug } from "@/lib/native/public-stories";
+import { fetchNativePublicBlogPosts, fetchNativePublicBlogPostBySlug } from "@/lib/native/public-blog";
 
 export const fetchPublicHome = async () => {
   const payload = await fetchNativePublicHome();
@@ -47,4 +48,24 @@ export const createContactMessage = async (contactPayload: {
   }
 
   return payload;
+};
+
+export const fetchPublicBlogPosts = async () => {
+  const payload = await fetchNativePublicBlogPosts();
+
+  if (!payload) {
+    throw new Error("Public blog posts data unavailable");
+  }
+
+  return payload satisfies BlogPostCard[];
+};
+
+export const fetchPublicBlogPostBySlug = async (slug: string) => {
+  const payload = await fetchNativePublicBlogPostBySlug(slug);
+
+  if (!payload) {
+    throw new Error("Blog post not found");
+  }
+
+  return payload satisfies BlogPostDetail;
 };

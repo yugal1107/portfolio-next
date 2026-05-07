@@ -15,6 +15,7 @@ export function SiteNav() {
           <Link href="/" className="hover:text-primary transition-colors">Home</Link>
           <Link href="/projects" className="hover:text-primary transition-colors">Projects</Link>
           <Link href="/stories" className="hover:text-primary transition-colors">Stories</Link>
+          <Link href="/blog" className="hover:text-primary transition-colors">Blog</Link>
           <Link href="/#contact" className="hover:text-primary transition-colors">Contact</Link>
         </nav>
         <div className="flex items-center gap-4">
