@@ -102,7 +102,7 @@ export function ContactSection({ settings }: ContactSectionProps) {
             disabled={isSubmitting}
             className="w-full bg-primary text-on-primary py-4 rounded-md font-bold font-headline uppercase tracking-widest hover:scale-[1.01] transition-transform shadow-xl shadow-primary/20 disabled:opacity-50 disabled:cursor-not-allowed"
           >
-            {isSubmitting ? "Sending..." : "Send Transmission"}
+            {isSubmitting ? "Sending..." : "Send Message"}
           </button>
           {submitStatus === "success" && (
             <p className="text-green-500 text-center">Message sent successfully!</p>

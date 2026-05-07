@@ -15,7 +15,7 @@ export default function PublicLayout({
         <div className="flex flex-col md:flex-row justify-between items-center max-w-7xl mx-auto gap-8">
           <div className="text-center md:text-left">
             <span className="text-lg font-bold text-on-surface font-headline tracking-tighter">YUGAL.LIVE</span>
-            <p className="text-on-surface-variant font-body text-sm mt-2">© 2026 Yugal Burde. Built with precision and AI.</p>
+            <p className="text-on-surface-variant font-body text-sm mt-2">© 2026 Yugal Burde.</p>
           </div>
           <div className="flex gap-8">
             <a className="text-on-surface-variant hover:text-primary transition-colors text-sm" href="https://github.com/yugal1107">GitHub</a>
